@@ -58,6 +58,38 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+/* --- GAYA UNTUK HATI ANIMASI --- */
+.heart {
+    position: absolute;
+    font-size: 2em; /* Ukuran hati */
+    color: #ff69b4; /* Warna pink */
+    transform: translateY(0) rotate(0deg); /* Posisi awal */
+    animation: floatHeart 10s ease-out infinite; /* Animasi utama */
+    pointer-events: none; /* KRITIS: Agar hati tidak menghalangi klik */
+    opacity: 0; /* Hati tersembunyi di awal, akan muncul oleh JS */
+    z-index: 0; /* Pastikan hati di belakang konten utama dan pop-up */
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+        left: var(--start-left); /* Posisi kiri acak, didefinisikan oleh JS */
+    }
+    10% {
+        opacity: 1; /* Mulai muncul */
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-1000px) rotate(360deg) scale(1.2); /* Terbang ke atas, berputar, membesar */
+        opacity: 0; /* Menghilang di akhir */
+    }
 }
 
 .container {

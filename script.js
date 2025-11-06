@@ -59,6 +59,37 @@ if (tombolFoto && gambarWrapper) {
     });
 }
 
+// --- FUNGSI UNTUK ANIMASI HATI (BARU) ---
+function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.textContent = '❤️'; // Atau '💖', '💕'
+    
+    // Posisi acak di bagian bawah layar
+    const startLeft = Math.random() * 100 + 'vw';
+    heart.style.left = startLeft;
+    
+    // Variasi durasi dan delay agar terlihat lebih alami
+    const animationDuration = Math.random() * 5 + 7; // Antara 7-12 detik
+    const animationDelay = Math.random() * 2; // Delay antara 0-2 detik
+    
+    heart.style.animationDuration = `${animationDuration}s`;
+    heart.style.animationDelay = `${animationDelay}s`;
+    
+    // Atur custom property CSS untuk posisi awal
+    heart.style.setProperty('--start-left', startLeft);
+
+    document.body.appendChild(heart);
+
+    // Hapus hati setelah animasinya selesai untuk mencegah penumpukan DOM
+    heart.addEventListener('animationend', () => {
+        heart.remove();
+    });
+}
+
+// Panggil createHeart secara berkala
+setInterval(createHeart, 800); // Setiap 0.8 detik, buat hati baru
+
 // Daftar ucapan lucu alternatif
 const ucapanAlternatif = [
     "Selamat ulang tahun Alya Sayangku! ",
