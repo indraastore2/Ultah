@@ -93,7 +93,7 @@ setInterval(createHeart, 800); // Setiap 0.8 detik, buat hati baru
 const ucapanAwal = "Selamat ulang tahun Alya Sayangku..Senoga Dengan Hari Kelahiran kmu , Dapat menjadi diri yang lebih baik kedepannya";
 // Daftar ucapan lucu alternatif
 const ucapanAlternatif = [
-    "Selamat ulang tahun Alya Sayangku..Senoga Dengan Hari Kelahiran kmu , Dapat menjadi diri yang lebih baik kedepannya",
+    "Selamat ulang tahun Alya Sayangku..Semoga Dengan Hari Kelahiran kmu , Dapat menjadi diri yang lebih baik kedepannya",
     "Happy birthday, sayang! Setiap tahun bersamamu adalah anugerah, dan hari ini adalah hari untuk merayakannya dengan penuh cinta",
     "Selamat bertambah usia untuk Wanita cantik yang mengisi hari-hariku dengan senyuman. Sehat selalu dan semoga semua impianmu tercapai",
     "Semoga Kamu sehat selalu Dan Semoga dipermudah semua urusan kamu serta Hubungan kita juga terus selamanya I LOVE YOU❤️ 😉"
@@ -120,4 +120,5 @@ tombolLucu.addEventListener('click', function() {
         ucapanElement.innerHTML = ucapanAlternatif[0]; // Tampilkan ucapan awal
         tombolLucu.textContent = "Ulangi Ucapan/Klik lagi!";
     }
+
 });
