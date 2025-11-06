@@ -1,0 +1,251 @@
+/* --- GAYA UNTUK KADO POP-UP BOX --- */
+#gift-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ff9800; /* Warna yang sama dengan border utama */
+    z-index: 9999; /* Pastikan selalu di atas */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: opacity 1s, visibility 1s;
+}
+
+.gift-box {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    border: 5px solid #d32f2f;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    animation: pulse 1.5s infinite alternate; /* Efek berdenyut */
+}
+
+@keyframes pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.05); }
+}
+
+.gift-icon {
+    font-size: 8em;
+    cursor: pointer;
+    margin: 20px 0;
+    transition: transform 0.2s;
+}
+
+.gift-icon:hover {
+    transform: scale(1.1);
+}
+
+.note-popup {
+    font-style: italic;
+    color: #777;
+    margin-top: 10px;
+}
+
+/* --- KONTEN UTAMA DISEMBUNYIKAN DI AWAL --- */
+#main-content {
+    display: none; /* Sembunyikan konten utama sampai kado dibuka */
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    background-color: #ffe0b2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #ffffff;
+    border: 5px dashed #ff9800;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 0px 0px #f57c00;
+    animation: bounce 2s infinite alternate;
+    
+    /* PERBAIKAN: Perkecil max-width agar efek pemusatan lebih terlihat */
+    max-width: 1300px; /* Atur lebar maksimum menjadi nilai tetap (misal 700px) */
+    width: 90%; /* Atau gunakan persentase yang lebih kecil */
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* --- HIDE DEFAULT: Gambar disembunyikan di awal --- */
+.gambar-wrapper {
+    display: block; /* Menyembunyikan wrapper gambar */
+    /* Gaya Flexbox untuk gambar samping-sampingan */
+    width: 100%; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 15px; 
+    flex-wrap: wrap; 
+    margin: 20px 0; 
+}
+
+/* --- Gaya untuk Gambar Tambahan --- */
+.gambar-tambahan {
+    max-width: 120px; /* Sedikit perkecil ukuran maksimum agar lebih banyak muat di satu baris */
+    height: auto;
+    border-radius: 15px; 
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); 
+    /* Rotasi yang lebih halus */
+    transform: rotate(calc(var(--rot) * 1deg)); /* Gunakan variabel CSS untuk rotasi dinamis */
+    transition: transform 0.3s ease-in-out; 
+}
+
+/* Definisikan variabel rotasi untuk setiap gambar (opsional, jika ingin rotasi berbeda) */
+.gambar-tambahan:nth-child(1) { --rot: -5; } /* Contoh: gambar pertama rotasi -5 derajat */
+.gambar-tambahan:nth-child(2) { --rot: 7; }
+.gambar-tambahan:nth-child(3) { --rot: -3; }
+.gambar-tambahan:nth-child(4) { --rot: 6; }
+.gambar-tambahan:nth-child(5) { --rot: -4; }
+.gambar-tambahan:nth-child(6) { --rot: 8; }
+/* Tambahkan lebih banyak jika ada lebih dari 6 gambar */
+
+
+/* Efek hover untuk gambar */
+.gambar-tambahan:hover {
+    transform: scale(1.1) rotate(0deg); /* Membesar sedikit dan melurus saat di-hover */
+}
+
+/* --- Gaya Baru untuk Tombol Foto-Foto --- */
+#tombol-foto {
+    background-color: #03a9f4; /* Warna Biru */
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#tombol-foto:hover {
+    background-color: #0288d1;
+    transform: scale(1.05);
+}
+
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10px); }
+}
+
+h1 {
+    color: #d32f2f; /* Warna merah mencolok */
+    font-size: 3em;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px #ffeb3b; /* Shadow kuning */
+}
+
+h2 {
+    color: #d32f2f; /* Warna merah mencolok */
+    font-size: 1.5em;
+    margin-top: 5px;
+    margin-bottom: 15px; /* Tambahkan sedikit jarak bawah */
+    /* Pastikan h2 (sebagai block element) juga terpusat */
+    width: 100%; 
+    text-align: center;
+}
+
+.ucapan-lucu {
+    font-size: 1.2em;
+    margin-top: 20px;
+    color: #333;
+    font-style: italic;
+    min-height: 100px;
+    
+    /* PENTING: Batasan Lebar dan Pemusatan */
+    max-width: 80%; /* Batasi lebar agar tidak terlalu panjang */
+    margin: 20px auto; /* Margin atas/bawah 20px, kiri/kanan auto untuk memusatkan */
+    
+    /* PENTING: Untuk memastikan teks di dalamnya terpusat */
+    text-align: center;
+}
+
+.emoji {
+    font-size: 3em;
+    margin: 15px 0;
+    display: inline-block;
+    animation: spin 3s linear infinite; /* Animasi berputar untuk emoji */
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.note {
+    margin-top: 25px;
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* --- Gaya Baru untuk Tombol di Kiri Bawah --- */
+.tombol-fixed-musik {
+    position: fixed; /* Mengunci posisi relatif terhadap viewport */
+    bottom: 20px;    /* 20px dari bawah */
+    left: 20px;      /* 20px dari kiri */
+    z-index: 1000;   /* Memastikan tombol berada di atas elemen lain */
+    background-color: #f44336; /* Warna merah agar mencolok */
+    color: white;
+    font-size: 2.5em; /* Ukuran emoji lebih besar */
+    width: 60px;     /* Lebar bulat */
+    height: 60px;    /* Tinggi bulat */
+    border: none;
+    border-radius: 50%; /* Membuat tombol menjadi bulat */
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3); /* Sedikit bayangan */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.tombol-fixed-musik:hover {
+    background-color: #d32f2f; /* Warna merah lebih gelap saat hover */
+    transform: scale(1.1); /* Sedikit membesar saat hover */
+}
+
+#tombol-musik {
+    background-color: #ffc107; /* Warna Kuning Ceria */
+    color: #333;
+    padding: 10px 20px;
+    margin: 10px 5px; /* Margin untuk memisahkannya dari tombol lain */
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+#tombol-musik:hover {
+    background-color: #ffb300;
+    transform: scale(1.05);
+}
+
+#tombol-lucu {
+    background-color: #4CAF50; /* Hijau */
+    color: white;
+    padding: 10px 20px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+#tombol-lucu:hover {
+    background-color: #45a049;
+    transform: scale(1.05); /* Efek saat di-hover */
+}
