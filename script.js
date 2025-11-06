@@ -90,25 +90,34 @@ function createHeart() {
 // Panggil createHeart secara berkala
 setInterval(createHeart, 800); // Setiap 0.8 detik, buat hati baru
 
+const ucapanAwal = "Selamat ulang tahun Alya Sayangku..Senoga Dengan Hari Kelahiran kmu , Dapat menjadi diri yang lebih baik kedepannya";
 // Daftar ucapan lucu alternatif
 const ucapanAlternatif = [
-    "Selamat ulang tahun Alya Sayangku! ",
+    "Selamat ulang tahun Alya Sayangku..Senoga Dengan Hari Kelahiran kmu , Dapat menjadi diri yang lebih baik kedepannya",
     "Happy birthday, sayang! Setiap tahun bersamamu adalah anugerah, dan hari ini adalah hari untuk merayakannya dengan penuh cinta",
     "Selamat bertambah usia untuk Wanita cantik yang mengisi hari-hariku dengan senyuman. Sehat selalu dan semoga semua impianmu tercapai",
-    "Semoga Kamu sehat selalu dan Hubungan kita juga terus selamanyaa❤️ 😉"
+    "Semoga Kamu sehat selalu Dan Semoga dipermudah semua urusan kamu serta Hubungan kita juga terus selamanya I LOVE YOU❤️ 😉"
 ];
 
-let counter = 0;
+let counter = 1; 
 
 // Fungsi yang akan dijalankan saat tombol diklik
 tombolLucu.addEventListener('click', function() {
-    ucapanElement.innerHTML = ucapanAlternatif[counter];
-    
-    counter = (counter + 1) % ucapanAlternatif.length;
-
-    if (counter === 0) {
-        tombolLucu.textContent = "Sekian Terima Gajih HAHAHHAA";
-    } else {
+    // Pastikan tidak melampaui batas array
+    if (counter < ucapanAlternatif.length) {
+        // Tampilkan ucapan berikutnya
+        ucapanElement.innerHTML = ucapanAlternatif[counter];
+        counter++;
         tombolLucu.textContent = "Klik lagi!";
+        
+        // Cek jika ini adalah ucapan terakhir yang ditampilkan
+        if (counter === ucapanAlternatif.length) {
+            tombolLucu.textContent = "Sekian Terima Gajih HAHAHHAA";
+        }
+    } else {
+        // Jika sudah mencapai akhir, kembali ke ucapan pertama (index 0)
+        counter = 1; // Reset counter untuk mengambil ucapan di index 1 pada klik berikutnya
+        ucapanElement.innerHTML = ucapanAlternatif[0]; // Tampilkan ucapan awal
+        tombolLucu.textContent = "Ulangi Ucapan/Klik lagi!";
     }
 });

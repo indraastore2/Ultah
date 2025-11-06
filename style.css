@@ -58,8 +58,7 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    overflow: hidden;
-    position: relative;
+    
 }
 
 /* --- GAYA UNTUK HATI ANIMASI --- */
@@ -112,11 +111,11 @@ body {
 
 /* --- HIDE DEFAULT: Gambar disembunyikan di awal --- */
 .gambar-wrapper {
-    display: block; /* Menyembunyikan wrapper gambar */
+    display: flex; /* Menyembunyikan wrapper gambar */
     /* Gaya Flexbox untuk gambar samping-sampingan */
     width: 100%; 
     justify-content: center; 
-    align-items: center; 
+    align-items: flex-start; 
     gap: 15px; 
     flex-wrap: wrap; 
     margin: 20px 0; 
@@ -125,10 +124,12 @@ body {
 /* --- Gaya untuk Gambar Tambahan --- */
 .gambar-tambahan {
     max-width: 120px; /* Sedikit perkecil ukuran maksimum agar lebih banyak muat di satu baris */
-    height: auto;
+    width: 120px;
+    height: 150px;
+    object-fit: cover;
+    object-position: center;
     border-radius: 15px; 
     box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); 
-    /* Rotasi yang lebih halus */
     transform: rotate(calc(var(--rot) * 1deg)); /* Gunakan variabel CSS untuk rotasi dinamis */
     transition: transform 0.3s ease-in-out; 
 }
@@ -136,10 +137,10 @@ body {
 /* Definisikan variabel rotasi untuk setiap gambar (opsional, jika ingin rotasi berbeda) */
 .gambar-tambahan:nth-child(1) { --rot: -5; } /* Contoh: gambar pertama rotasi -5 derajat */
 .gambar-tambahan:nth-child(2) { --rot: 7; }
-.gambar-tambahan:nth-child(3) { --rot: -3; }
-.gambar-tambahan:nth-child(4) { --rot: 6; }
-.gambar-tambahan:nth-child(5) { --rot: -4; }
-.gambar-tambahan:nth-child(6) { --rot: 8; }
+.gambar-tambahan:nth-child(3) { --rot: -5; }
+.gambar-tambahan:nth-child(4) { --rot: -8; }
+.gambar-tambahan:nth-child(5) { --rot: -8; }
+.gambar-tambahan:nth-child(6) { --rot: 6; }
 /* Tambahkan lebih banyak jika ada lebih dari 6 gambar */
 
 
